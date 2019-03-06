@@ -1,0 +1,28 @@
+{
+  "name": "vue2-template-server",
+  "version": "1.0.0",
+  "description": "vue项目演示的服务器端",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangyangteng/vue2-template-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangyangteng/vue2-template-server/issues"
+  },
+  "homepage": "https://github.com/huangyangteng/vue2-template-server#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.17",
+    "multer": "^1.4.1"
+  }
+}
