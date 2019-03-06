@@ -3,7 +3,6 @@ const router=express.Router()
 const bcrypt=require('bcrypt')
 const User=require('../../models/user')
 const jwt=require('jsonwebtoken')
-const passport=require('passport')
 const bodyParser = require('body-parser');
 const verifyToken =require('../../config/verifyToken')
 
@@ -26,7 +25,7 @@ router.get('/test',verifyToken,(req,res)=>{
 
 
 router.get('/test1',(req,res)=>{
-    jwt.sign({id:'111'},'secret',{expiresIn:3600},(err,token)=>{
+    jwt.sign({id:'111'},'secret',{expiresIn:3600*24},(err,token)=>{
         res.json({
             code:2000,
             msg:'success',

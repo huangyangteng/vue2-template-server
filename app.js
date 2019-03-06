@@ -14,5 +14,8 @@ app.use('/api/users',UserController)
 const TestController=require(__root+'routers/api/test')
 app.use('/api/tests',TestController)
 
+const BeautyController=require(__root+'routers/api/beauty')
+app.use('/api/beauty',BeautyController)
+
 
 module.exports=app

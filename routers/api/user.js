@@ -4,7 +4,7 @@ const bcrypt=require('bcrypt')
 const User=require('../../models/user')
 const jwt=require('jsonwebtoken')
 const bodyParser = require('body-parser');
-const config=require('../../config/keys')
+const keys=require('../../config/keys')
 const verifyToken=require('../../config/verifyToken')
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -62,7 +62,7 @@ router.post('/reg',(req,res)=>{
 
 /**
  * @router POST api/user/login
- * @desc 返回token  jwt passport
+ * @desc 返回token  jwt 
  * @access public
  */
 router.post('/login',(req,res)=>{
@@ -78,7 +78,7 @@ router.post('/login',(req,res)=>{
 
                     if(isMatch){//登录成功，返回token
                         const rule={id:user.id,name:user.name}
-                        jwt.sign(rule,config.secretOrKey,{expiresIn:3600*24},(err,token)=>{
+                        jwt.sign(rule,keys.secretOrKey,{expiresIn:3600*24},(err,token)=>{
                             if(err)throw err
                             res.json({
                                 msg:'ok',
@@ -96,13 +96,14 @@ router.post('/login',(req,res)=>{
 
 /**
  * @router GET api/user/current
- * @desc 返回用户登录信息  jwt passport
+ * @desc 返回用户登录信息  jwt 
  * @access public
  */
 router.get('/current',verifyToken,(req,res)=>{
 
     res.json({
         id:req.userId,
+        token:req.token
     })
 })
 
